@@ -1,0 +1,9 @@
+<div class="container-fluid">
+  <app-navbar *ngIf="authService.isAuthenticated()"></app-navbar>
+
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <app-footer *ngIf="authService.isAuthenticated()"></app-footer>
+</div>

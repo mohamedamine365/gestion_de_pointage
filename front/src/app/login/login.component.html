@@ -1,0 +1,76 @@
+<div class="login-container">
+
+    <div class="login-card">
+      <div class="login-header">
+        <img src="assets/images/poulina.jpg" alt="Company Logo" class="logo">
+        <h2>Bienvenue</h2>
+        <p>Connectez-vous à votre compte</p>
+      </div>
+  
+      <form [formGroup]="loginForm" (ngSubmit)="send()" class="login-form">
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="email">Adresse Email</label>
+          <input 
+            id="email"
+            type="email" 
+            formControlName="email"
+            [ngClass]="{ 
+              'form-control': true,
+              'is-invalid': (email?.invalid && email?.touched) || errorMessage,
+              'is-valid': email?.valid
+            }" 
+            placeholder="exemple@domaine.com"
+          >
+          <div *ngIf="email?.errors?.['required'] && email?.touched" class="invalid-feedback">
+            L'email est obligatoire
+          </div>
+          <div *ngIf="email?.errors?.['email'] && email?.touched" class="invalid-feedback">
+            Veuillez entrer une adresse email valide
+          </div>
+        </div>
+  
+        <!-- Password Field -->
+        <div class="form-group">
+          <label for="password">Mot de passe</label>
+          <div class="password-input-group">
+            <input 
+              id="password"
+              [type]="showPassword ? 'text' : 'password'" 
+              formControlName="password"
+              [ngClass]="{ 
+                'form-control': true,
+                'is-invalid': (password?.invalid && password?.touched) || errorMessage,
+                'is-valid': password?.valid
+              }" 
+              placeholder="••••••••"
+            >
+            <button type="button" class="toggle-password" (click)="togglePasswordVisibility()">
+              <i class="fas" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+            </button>
+          </div>
+          <div *ngIf="password?.errors?.['required'] && password?.touched" class="invalid-feedback">
+            Le mot de passe est obligatoire
+          </div>
+          <div *ngIf="password?.errors?.['minlength'] && password?.touched" class="invalid-feedback">
+            Le mot de passe doit contenir au moins 6 caractères
+          </div>
+        </div>
+  
+        <!-- Error Message -->
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          <i class="fas fa-exclamation-circle me-2"></i> {{ errorMessage }}
+        </div>
+  
+        <!-- Submit Button -->
+        <button type="submit" class="login-btn" [disabled]="loginForm.invalid || isLoading">
+          <span *ngIf="!isLoading">Se connecter</span>
+          <span *ngIf="isLoading">
+            <i class="fas fa-spinner fa-spin me-2"></i> Connexion...
+          </span>
+        </button>
+  
+
+      </form>
+    </div>
+  </div>

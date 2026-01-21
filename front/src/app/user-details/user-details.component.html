@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<div class="container user-details-container" *ngIf="user">
+    <div class="user-card">
+      <!-- User Header Section -->
+      <div class="user-header">
+        <div class="avatar">
+          <span class="initials">{{ user.prenom.charAt(0) }}{{ user.nom.charAt(0) }}</span>
+        </div>
+        <div class="user-title">
+          <h1>{{ user.prenom }} {{ user.nom }}</h1>
+          <p class="user-role">{{ user.privilege }}</p>
+        </div>
+        <div class="status-badge" [ngClass]="{'active': user.actif, 'inactive': !user.actif}">
+          {{ user.actif ? 'ACTIF' : 'INACTIF' }}
+        </div>
+      </div>
+  
+      <!-- Main Content -->
+      <div class="user-content">
+        <!-- Personal Information Section -->
+        <div class="info-section">
+          <div class="section-header">
+            <i class="fas fa-user icon"></i>
+            <h2>Informations Personnelles</h2>
+          </div>
+          <div class="info-grid">
+            <div class="info-item">
+              <label>Nom Complet</label>
+              <p>{{ user.prenom }} {{ user.nom }}</p>
+            </div>
+            <div class="info-item">
+              <label>Email</label>
+              <p><a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
+            </div>
+            <div class="info-item">
+              <label>Matricule</label>
+              <p class="monospace">{{ user.matricule }}</p>
+            </div>
+            <div class="info-item">
+              <label>Privilège</label>
+              <p>{{ user.privilege }}</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Establishment Information Section -->
+        <div class="info-section">
+          <div class="section-header">
+            <i class="fas fa-building icon"></i>
+            <h2>Établissement</h2>
+          </div>
+          <div class="info-grid">
+            <div class="info-item">
+              <label>Nom</label>
+              <p>{{ user.etablissement?.nom || 'Non spécifié' }}</p>
+            </div>
+            <div class="info-item">
+              <label>Adresse</label>
+              <p>{{ user.etablissement?.adresse || 'Non spécifié' }}</p>
+            </div>
+            <div class="info-item">
+              <label>Ville</label>
+              <p>{{ user.etablissement?.ville || 'Non spécifié' }}</p>
+            </div>
+            <div class="info-item">
+              <label>Site Centralisateur</label>
+              <p>{{ user.etablissement?.site_centralisateur?.nom || 'Non spécifié' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button class="btn back-btn" routerLink="/parametrage-des-acces">
+          <i class="fas fa-arrow-left"></i> Retour à la liste
+        </button>
+      </div>
+    </div>
+  </div>

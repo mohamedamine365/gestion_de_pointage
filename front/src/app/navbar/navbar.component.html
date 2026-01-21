@@ -1,0 +1,40 @@
+<div class="image-container">
+  <img src="assets/images/Accésp.png" alt="Accès" class="image acces-image">
+  <img src="assets/images/Pointages.jpg" alt="Pointages" class="image pointages-image">
+  <img src="assets/images/sirhp.png" alt="SIRH" class="image sirh-image">
+
+</div>
+
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">Gestion de pointage</div>
+
+  <ul class="nav-links" [class.active]="menuOpen">
+    <li>
+      <a routerLink="/repartition-des-acces" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+        Tableau de bord administratif
+        <!-- TBD répartition des accès -->
+      </a>
+    </li>
+    <li>
+      <a routerLink="/Consultation-des-acces" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+        Consultation des accès
+      </a>
+    </li>
+    <li>
+      <a routerLink="/parametrage-des-acces" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">
+        <!-- Paramétrage des accès  -->
+        Gestion des utilisateurs
+      </a>
+    </li>
+
+    <li class="logout-container">
+      <button class="logout-btn" (click)="logout()">
+        <span aria-hidden="true">⎋</span> Déconnexion
+      </button>
+    </li>
+  </ul>
+
+  <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+</nav>

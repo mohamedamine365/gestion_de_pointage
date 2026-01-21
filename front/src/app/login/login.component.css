@@ -1,0 +1,176 @@
+/* Base Styles */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 20px;
+  }
+  
+  /* Card Styles */
+  .login-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    transition: all 0.3s ease;
+  }
+  
+  .login-card:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Header Styles */
+  .login-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .login-header .logo {
+    height: 60px;
+    margin-bottom: 20px;
+  }
+  
+  .login-header h2 {
+    color: #2c3e50;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .login-header p {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+  }
+  
+  /* Form Styles */
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #2c3e50;
+    font-size: 0.9rem;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+  }
+  
+  .form-control:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    outline: none;
+  }
+  
+  .form-control.is-invalid {
+    border-color: #e74c3c;
+  }
+  
+  .form-control.is-valid {
+    border-color: #2ecc71;
+  }
+  
+  /* Password Input Group */
+  .password-input-group {
+    position: relative;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #7f8c8d;
+    cursor: pointer;
+    padding: 5px;
+  }
+  
+  .toggle-password:hover {
+    color: #3498db;
+  }
+  
+  /* Button Styles */
+  .login-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+  }
+  
+  .login-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .login-btn:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+  }
+  
+  /* Feedback Messages */
+  .invalid-feedback {
+    color: #e74c3c;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: block;
+  }
+  
+  .alert-danger {
+    background-color: #fdecea;
+    color: #e74c3c;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    border: 1px solid #f5b7b1;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Forgot Password Link */
+  .forgot-password {
+    color: #7f8c8d;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .forgot-password:hover {
+    color: #3498db;
+    text-decoration: underline;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 576px) {
+    .login-card {
+      padding: 30px 20px;
+    }
+    
+    .login-header h2 {
+      font-size: 1.5rem;
+    }
+  }

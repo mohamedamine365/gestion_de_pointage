@@ -1,0 +1,198 @@
+/* Styles du modal personnalisé */
+.custom-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1500;
+}
+
+.custom-modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    max-width: 800px; /* Remplace width par max-width */
+    width: 90%; /* S'adapte à 90% de l'écran jusqu'à 800px max */
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px; /* Ajoute une marge pour les petits écrans */
+}
+
+.custom-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.custom-modal-header h5 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.custom-modal-header .btn-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+}
+
+.custom-modal-body {
+    max-height: 70vh; /* Utilise viewport height au lieu de pixels fixes */
+    overflow-y: auto;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+    padding-right: 5px; /* Compense l'espace de la scrollbar verticale */
+}
+
+.custom-modal-body .form-label {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.custom-modal-body .form-control {
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.custom-modal-body .btn {
+    width: 20%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.custom-modal-body .btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.custom-modal-body .btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+.custom-modal-body .btn:hover {
+    opacity: 0.9;
+}
+
+.custom-modal-body .form-select {
+    border-radius: 4px;
+}
+.btn-sm {
+    padding: 4px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .modal-body .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.modal-body .col-md-6, 
+.modal-body .col-md-4, 
+.modal-body .col-md-12 {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+  /* Container for pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for each pagination button */
+  .pagination button {
+    background-color: #2c3e50; /* Set the background color */
+    color: white; /* Set the text color */
+    border: none; /* Remove default border */
+    padding: 10px 20px; /* Adjust the padding */
+    margin: 0 5px; /* Space between buttons */
+    border-radius: 50px; /* Circular design */
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  /* Style when the button is hovered */
+  .pagination button:hover {
+    background-color: #34495e; /* Darker shade on hover */
+    transform: scale(1.1); /* Slightly increase the size on hover */
+  }
+  
+  /* Style for the disabled pagination button */
+  .pagination button:disabled {
+    background-color: #7f8c8d; /* Gray color for disabled button */
+    cursor: not-allowed; /* Change cursor to indicate it is not clickable */
+  }
+  
+  /* Optional: Style for the current page text */
+  .pagination span {
+    font-size: 16px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 10px;
+  }
+  
+
+  /* Style pour le modal */
+
+  
+  .modal.show {
+    display: block;
+  }
+  
+  /* Style pour les badges */
+  .badge {
+    font-weight: 500;
+    padding: 0.35em 0.65em;
+  }
+  
+
+  
+  /* Style pour les messages de validation */
+  .invalid-feedback {
+    display: block;
+  }
+  
+  /* Style pour les lignes du tableau */
+  .table-hover tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+  }
+  
+
+  
+  /* Style pour les champs de formulaire */
+  .form-control.is-invalid, .form-select.is-invalid {
+    border-color: #dc3545;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  }
+  
+  .form-control.is-valid, .form-select.is-valid {
+    border-color: #198754;
+    padding-right: calc(1.5em + 0.75rem);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
+  }
+
+  .btn-warning {
+    color: white;
+  }
+  .btn-warning:hover {
+    background-color: #e0a800;
+    border-color: #d39e00;
+  }

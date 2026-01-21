@@ -1,0 +1,110 @@
+<div class="container email-page">
+    <p-toast position="top-right" [showTransformOptions]="'translateY(100%)'" [showTransitionOptions]="'1000ms'"
+    [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'" [style]="{ 
+    'position': 'fixed', 
+    'top': '251px', 
+    'right': '20px', 
+    'width': '400px', 
+    'height':'200px', 
+    'white-space': 'nowrap' 
+  }">
+  </p-toast>  
+    <div class="email-layout">
+      <!-- Carte principale pour l'email -->
+      <div class="email-main-card">
+        <div class="email-header">
+          <h2>
+            <i class="bi bi-envelope me-2"></i>
+            Envoyer un email à {{ user?.prenom }} {{ user?.nom }}
+          </h2>
+        </div>
+  
+        <div class="email-body">
+          <form [formGroup]="emailForm" (ngSubmit)="sendEmail()">
+            <!-- Champ Destinataire -->
+            <div class="form-group">
+              <label for="recipient">Destinataire</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                <input type="email" class="form-control" id="recipient" 
+                       [value]="user?.email" disabled>
+              </div>
+            </div>
+  
+            <!-- Champ Sujet -->
+            <div class="form-group">
+              <label for="subject">Sujet</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-tag"></i></span>
+                <input type="text" class="form-control" id="subject" formControlName="subject"
+                       placeholder="Objet de l'email">
+              </div>
+              <div *ngIf="emailForm.get('subject')?.invalid && emailForm.get('subject')?.touched" 
+                   class="invalid-feedback">
+                <i class="bi bi-exclamation-circle"></i> Ce champ est requis
+              </div>
+            </div>
+  
+            <!-- Champ Message -->
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea class="form-control" id="message" formControlName="message" rows="6"
+                        placeholder="Votre message..."></textarea>
+              <div *ngIf="emailForm.get('message')?.errors?.['required'] && emailForm.get('message')?.touched" 
+                   class="invalid-feedback">
+                <i class="bi bi-exclamation-circle"></i> Ce champ est requis
+              </div>
+              <div *ngIf="emailForm.get('message')?.errors?.['minlength']" 
+                   class="invalid-feedback">
+                <i class="bi bi-exclamation-circle"></i> Le message doit contenir au moins 10 caractères
+              </div>
+            </div>
+  
+            <!-- Bouton Envoyer -->
+            <div class="form-actions">
+              <button type="submit" class="btn btn-send" [disabled]="isSending || emailForm.invalid">
+                <span *ngIf="!isSending">
+                  <i class="bi bi-send-fill me-2"></i>Envoyer
+                </span>
+                <span *ngIf="isSending">
+                  <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                  Envoi en cours...
+                </span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+  
+      <!-- Carte d'informations utilisateur -->
+      <div class="user-info-card">
+        <div class="user-card-header">
+          <i class="bi bi-person-badge me-2"></i>
+          <h3>Informations utilisateur</h3>
+        </div>
+        <div class="user-card-body">
+          <div class="user-detail-item">
+            <i class="bi bi-id-card"></i>
+            <div>
+              <span class="detail-label">Matricule</span>
+              <span class="detail-value">{{ user?.matricule || '-' }}</span>
+            </div>
+          </div>
+          <div class="user-detail-item">
+            <i class="bi bi-person"></i>
+            <div>
+              <span class="detail-label">Nom complet</span>
+              <span class="detail-value">{{ user?.prenom }} {{ user?.nom }}</span>
+            </div>
+          </div>
+          <div class="user-detail-item">
+            <i class="bi bi-envelope"></i>
+            <div>
+              <span class="detail-label">Email</span>
+              <span class="detail-value">{{ user?.email || '-' }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

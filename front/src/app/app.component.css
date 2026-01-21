@@ -1,0 +1,26 @@
+.container-fluid {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  app-navbar {
+    margin-bottom: 4px; /* Ajoute un espace entre la navbar et le contenu */
+  }
+  
+  router-outlet {
+    flex-grow: 1; /* Permet au contenu de s'étendre et de prendre tout l’espace restant */
+    padding: 5px; /* Ajoute un peu d’espace autour du contenu */
+  }
+  :host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+
+  .content {
+    flex: 1; /* pousse le footer vers le bas */
+  }
+  
